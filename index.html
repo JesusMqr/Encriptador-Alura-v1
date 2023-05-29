@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Challenge Encriptador - Alura</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img class="logo" src="IMG/logo_alura.svg" alt="">
+    </header>
+    <main>
+        <div class="contenedor">
+            <div class="contenedor-texto">
+                    <textarea type="textarea"  class="texto-no-encriptado text-area" id="texto-ingresado"
+                    placeholder="Ingrese el Texto Aqui" cols="30" rows="10" ></textarea>
+                    <div class="botones">
+                        <div class="advertencia">
+                            <img src="IMG/exclamation-circle-fillalerta.svg" alt="">
+                            <p> Solo letras minusculas y sin ascentos</p>
+                        
+                        </div>
+                        <button type="submit" class="boton encriptar" onclick="encriptar();">Encriptar</button>
+                        <button type="submit" class="boton desencriptar" onclick="desencriptar();">Desencriptar</button>
+                    </div>
+            </div>
+            <div class="contenedor-resultado">
+                <div class="resultado-vacio" id="caja-vacia">
+                    <img src="IMG/Muñeco.svg" alt="munheco alura">
+                    <h4 class="resultado-texto">Ningun Valor fue encontrado</h4>
+                    <p>Ingrese el texto que deseas encriptar o desencriptar</p>
+                </div>
+                <div class="resultado-lleno" id="caja-llena">
+                    <p id="texto-resultado" class="mensaje"></p>
+                    <button class="btn-copiar" type="submit" onclick="copiar();" >Copiar</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <footer>
+        <p> Desarrollado por: </p>
+        <h3>Jesus Maquera Quispe</h3>
+        <div class="redes:">
+            <a href="https://github.com/JesusMqr"><img class="redes-logo" src="IMG/github logo white.svg" alt="github logo"></a>
+            <a href="https://www.linkedin.com/in/jesus-maquera-bb6a25263/"><img class="redes-logo" src="IMG/linkedin logo white.svg" alt="linkedin logo"></a>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
