@@ -1,6 +1,6 @@
 
 function encriptar(){
-    let texto= document.getElementById("texto-ingresado").value;
+    let texto= document.getElementById("texto").value;
     texto=texto.toLowerCase();
     texto = texto.replace(/e/g,'enter');
     texto = texto.replace(/i/g,'imes');
@@ -8,59 +8,60 @@ function encriptar(){
     texto = texto.replace(/o/g,'ober');
     texto = texto.replace(/u/g,'ufat');
 
-    let resultado = document.getElementById("texto-resultado");
+    let resultado = document.getElementById("resultado");
+    resultado.style.textAlign = "justify";
     resultado.innerHTML = texto;
     
-
-    ocultar();
-    mostrar();
-    limpiar();
+    mostrarBtn();
 }
 
 function desencriptar(){
-    let texto= document.getElementById("texto-ingresado").value;
-    texto.toLowerCase();
+    let texto= document.getElementById("texto").value;
+    texto=texto.toLowerCase();
     texto = texto.replace(/enter/g,'e');
     texto = texto.replace(/imes/g,'i');
     texto = texto.replace(/ai/g,'a');
     texto = texto.replace(/ober/g,'or');
     texto = texto.replace(/ufat/g,'u');
 
-    let resultado = document.getElementById("texto-resultado");
+
+    let resultado = document.getElementById("resultado");
+    resultado.style.textAlign = "justify";
     resultado.innerHTML = texto;
-    ocultar();
-    mostrar();
-    limpiar();
+    
+    mostrarBtn();
 }
 
-function ocultar(){
-    let cuadro = document.getElementById("caja-vacia");
-    cuadro.style.display="none";
+function copiar(){
+    let mensaje = document.getElementById('resultado').textContent;
+    navigator.clipboard.writeText(mensaje);
+    ocultarBtn();
+    reset();
+
+}   
+
+function mostrarBtn(){
+    let btnCopiar = document.getElementById("btn-copiar");
+    let munheco = document.getElementById("munheco");
+    let contenido = document.getElementById("contenido");
+    btnCopiar.style.display="block";
+    contenido.style.display="none";
+    munheco.style.display="none";
 }
 
-function mostrar(){
-    let cuadro = document.getElementById("caja-llena");
-    cuadro.style.display="flex";
+function ocultarBtn(){
+    let btnCopiar = document.getElementById("btn-copiar");
+    let munheco = document.getElementById("munheco");
+    let contenido = document.getElementById("contenido");
+    btnCopiar.style.display="none";
+    contenido.style.display="block";
+    munheco.style.display="block";
 }
 
+function reset(){
+    let resultado = document.getElementById("resultado");
+    resultado.style.textAlign = "center";
+    resultado.innerHTML = "Ningún mensaje fue encontrado";
+    document.getElementById("texto").value="";
 
-function limpiar(){
-    let cuadro = document.getElementById("texto-ingresado");
-    cuadro.value = "";
 }
-
-function copiar() {
-    alert("copio")
-    let mensaje_copiado = document.getElementById("texto-resultado").textContent;
-    navigator.clipboard.writeText(mensaje_copiado.toString());
-  }
-
-/*
-const btnCopiar = document.querySelector(".btn-copiar");
-btnCopiar.addEventListener("click",copiar = () =>{
-    var contenido = document.querySelector(".texto-resultado").textContent;
-    navigator.clipboard.writeText(contenido);
-    alert(contenido);
-})
-*/ 
-
